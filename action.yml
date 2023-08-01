@@ -1,0 +1,17 @@
+name: Check Python code style
+description: Uses pycodestyle to check the repository's code style.
+inputs:
+    python-version:
+        description: Python version to use, defaults to 3.9.6
+        default: 3.9.6
+runs:
+    using: composite
+    steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-python@v4
+          with:
+            python-version: ${{ inputs.python-version }}
+        - run: pip install pycodestyle
+          shell: cmd
+        - run: python -m pycodestyle --exclude=.github,.venv,.vscode,scripts --max-line-length=130 .
+          shell: cmd
