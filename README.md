@@ -1,5 +1,5 @@
-# python-actions
-Action to check the codestyle using pycodestyle.
+# python-codestyle-check
+Action to check the codestyle using flake8.
 <br><br>
 ## License
 Please see [LICENSE](LICENSE)
