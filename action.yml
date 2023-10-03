@@ -1,5 +1,5 @@
 name: Check Python code style
-description: Uses pycodestyle to check the repository's code style.
+description: Uses flake8 to check the repository's code style.
 inputs:
     python-version:
         description: Python version to use, defaults to 3.9.6
@@ -11,7 +11,7 @@ runs:
         - uses: actions/setup-python@v4
           with:
             python-version: ${{ inputs.python-version }}
-        - run: pip install pycodestyle
+        - run: pip install flake8
           shell: cmd
-        - run: python -m pycodestyle --exclude=.github,.venv,.vscode,scripts --max-line-length=130 .
+        - run: python -m flake8 --exclude=.github,.venv,.vscode,scripts --max-line-length=130 .
           shell: cmd
